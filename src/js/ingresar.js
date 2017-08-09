@@ -82,11 +82,18 @@ var login = function(provider){
 		var token = result.credential.accessToken;
 		var user = result.user;
 		console.log(user);
-		var name = user.displayName;
-		var email = user.email;
-		localStorage.setItem('name', name);
+		var responseAPI = {
+			name : user.displayName,
+			email : user.email,
+			type: 2,
+			gender: 'Femenino',
+		}
+		
+		
+		userRegisterApi(responseAPI);
 	})
-		.then(function(response) {
+		.then(function() {
+		
 		location.href = 'bienvenido.html';
 	})
 		.catch(function(error) {
@@ -94,9 +101,30 @@ var login = function(provider){
 		var errorMessage = error.message;
 		var email = error.email;
 		var credential = error.credential;
-		console.log('error', errorMessage);
 	});
+};
+
+
+var userRegisterApi = function(responseAPI){
+	$.post('http://www.imagentv.com/api/users/register', {
+		type: responseAPI.type,
+		email: responseAPI.email,
+		gender: responseAPI.gender,
+	})
+};
+
+var loginUser = function(responseAPI) {
+	console.log(responseAPI);
+	$.post('http://www.imagentv.com/api/users/login', {
+		type: responseAPI.type,
+		email: responseAPI.type,
+		gender: responseAPI.gender
+	}, function(){
+		alert('')
+	})
 }
+
+
 
 var fbButton = document.querySelector('.login-fb');
 var twitterButton = document.querySelector('.login-twitter');
