@@ -88,11 +88,11 @@ var login = function(provider){
 			type: 2,
 			gender: 'Femenino',
 		}
-		
+
 		localStorage.setItem('name', responseAPI.name);
 
 
-		userRegisterApi(responseAPI);
+		loginUser(responseAPI);
 	})
 		.then(function() {
 
@@ -117,13 +117,21 @@ var userRegisterApi = function(responseAPI){
 
 var loginUser = function(responseAPI) {
 	console.log(responseAPI);
-	$.post('http://www.imagentv.com/api/users/login', {
-		type: responseAPI.type,
-		email: responseAPI.type,
-		gender: responseAPI.gender
-	}, function(){
-		alert('')
+	$.ajax({
+		url:'http://www.imagentv.com/api/users/login',
+		   type: 'POST',
+//		   dataType: 'jsonp',
+		   data: {
+		   type: responseAPI.type,
+		   email: responseAPI.email,
+		   }, 
+		   success: function(res){
+		console.log(res)
+	}, error: function(error){
+		console.log(error)
+	}
 	})
+
 }
 
 
