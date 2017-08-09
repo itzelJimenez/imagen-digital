@@ -1,53 +1,3 @@
-const $email = $('#email');
-const $password = $('#password');
-const $form = $('#form');
-const $ingresar = $('#ingresar');
-
-var cargarPagina = function(){
-	$form.submit(validateFields);
-	$ingresar.addClass('disabled');
-	emptyFields();
-	$email.keyup(emptyFields);
-	$password.keyup(emptyFields);
-	$ingresar.click(validateFields);
-}
-
-const emptyFields = ()=>{
-	if( $email.val().length == 0 || $password.val().length == 0 ){
-		$ingresar.addClass('disabled');
-	}else {
-		$ingresar.removeClass('disabled');
-	}
-}
-
-const validateEmail = ()=>{
-	let emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-	if (emailRegex.test($email.val())) {
-		return true;
-	} else {
-		alert("Ingresa un email valido");
-	}
-};
-
-const validatePassword = ()=>{
-	if($password.val().length > 6){
-		alert("Recuerda que debes ingresar un password de 6 dígitos");
-	} else if ($password.val().length < 6){
-		alert("Recuerda que debes ingresar un password de mínimo 6 dígitos");
-	} else if($password.val().length == 6){ return true};
-}
-
-const validateFields = (e)=>{
-	e.preventDefault();
-	if(validateEmail() && validatePassword()){
-		userRegister();
-	} 
-}
-
-const userRegister = function(){
-	location.href="canal.html"
-};
-
 // Initialize Firebase
 var config = {
 	apiKey: "AIzaSyDhWXnUNzqUjE2BBr3wRfDV24rJMQDlLGU",
@@ -76,7 +26,7 @@ var loginWithGoogle = function(){
 };
 
 var login = function(provider){
-
+	
 	firebase.auth().signInWithPopup(provider)
 		.then(function(result) {
 		var token = result.credential.accessToken;
@@ -87,7 +37,7 @@ var login = function(provider){
 		localStorage.setItem('name', name);
 	})
 		.then(function(response) {
-		location.href = 'bienvenido.html';
+			location.href = 'bienvenido.html';
 	})
 		.catch(function(error) {
 		var errorCode = error.code;
@@ -105,5 +55,3 @@ var googleButton = document.querySelector('.login-google');
 fbButton.addEventListener('click', loginWithFb);
 twitterButton.addEventListener('click', loginWithTwitter);
 googleButton.addEventListener('click', loginWithGoogle);
-
-$(document).ready(cargarPagina);
