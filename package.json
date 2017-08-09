@@ -1,0 +1,27 @@
+{
+  "name": "imagen-digital",
+  "version": "1.0.0",
+  "description": "gulp, sass, api, validacion, heroku, materialize, progressive webapps",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AmaliaRiveraC/imagen-digital.git"
+  },
+  "keywords": [
+    "rediseno",
+    "gulp",
+    "sass",
+    "api",
+    "progressive",
+    "webapps"
+  ],
+  "author": "Imagen-Digital",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AmaliaRiveraC/imagen-digital/issues"
+  },
+  "homepage": "https://github.com/AmaliaRiveraC/imagen-digital#readme"
+}
