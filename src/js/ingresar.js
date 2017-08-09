@@ -96,7 +96,7 @@ var login = function(provider){
 	})
 		.then(function() {
 
-		location.href = 'bienvenido.html';
+		//location.href = 'bienvenido.html';
 	})
 		.catch(function(error) {
 		var errorCode = error.code;
@@ -109,6 +109,7 @@ var login = function(provider){
 
 var userRegisterApi = function(responseAPI){
 	$.post('http://www.imagentv.com/api/users/register', {
+		jsonp: "callback",
 		type: responseAPI.type,
 		email: responseAPI.email,
 		gender: responseAPI.gender,
