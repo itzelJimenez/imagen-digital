@@ -89,11 +89,13 @@ var login = function(provider){
 			gender: 'Femenino',
 		}
 		
-		
+		localStorage.setItem('name', responseAPI.name);
+
+
 		userRegisterApi(responseAPI);
 	})
 		.then(function() {
-		
+
 		location.href = 'bienvenido.html';
 	})
 		.catch(function(error) {
