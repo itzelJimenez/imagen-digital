@@ -75,7 +75,7 @@ const validateFields = (e)=>{
 }
  
 const userRegister = function(){
-	location.href="bienvenido.html"
+	location.href="notificaciones.html"
 };
 
 $(document).ready(cargarPagina);
