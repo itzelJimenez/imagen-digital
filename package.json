@@ -24,9 +24,15 @@
     "url": "https://github.com/AmaliaRiveraC/imagen-digital/issues"
   },
   "homepage": "https://github.com/AmaliaRiveraC/imagen-digital#readme",
+  "engines": {
+        "node": "6.10.0"
+    },
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-csso": "^3.0.0",
     "gulp-sass": "^3.1.0"
+  },
+  "dependencies": {
+    "express": "^4.15.4"
   }
 }
