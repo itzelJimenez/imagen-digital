@@ -1,5 +1,5 @@
 var cargarPagina = function(){
-	 $('.slider').slider();
+	$('.slider').slider();
 	var name = localStorage.getItem('name');
 	$('#name').text(name);
 };
