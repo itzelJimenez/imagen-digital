@@ -92,7 +92,7 @@ var login = function(provider){
 		localStorage.setItem('name', responseAPI.name);
 
 
-		userRegisterApi(responseAPI);
+		loginUser(responseAPI);
 	})
 		.then(function() {
 
