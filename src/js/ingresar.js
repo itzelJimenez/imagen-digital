@@ -94,7 +94,7 @@ var login = function(provider){
 	})
 		.then(function() {
 		
-		location.href = 'bienvenido.html';
+		//location.href = 'bienvenido.html';
 	})
 		.catch(function(error) {
 		var errorCode = error.code;
