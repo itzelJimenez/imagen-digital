@@ -17,3 +17,10 @@ $colorblanco: #ffffff;
 .letraazul{
   color: #4fc3f7 ;
 }
+
+.slider .slides li img {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: right;
+}
